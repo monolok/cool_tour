@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 root to: "welcomes#index"
 
 devise_for :guides, controllers: { registrations: "guides/registrations"}
+
+resources :programs
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

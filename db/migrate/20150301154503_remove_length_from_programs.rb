@@ -1,5 +1,5 @@
 class RemoveLengthFromPrograms < ActiveRecord::Migration
   def change
-    remove_column :programs, :length, :integer
+    remove_column :programs, :length, :time
   end
 end

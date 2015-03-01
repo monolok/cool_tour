@@ -1,5 +1,5 @@
 class AddLengthToPrograms < ActiveRecord::Migration
   def change
-    add_column :programs, :length, :time
+    add_column :programs, :length, :integer
   end
 end

@@ -22,6 +22,7 @@ class ProgramsController < ApplicationController
 
   def create
     @program = Program.new(program_params)
+    @program.guide_id = current_guide.id
     @program.save
     respond_with(@program)
   end

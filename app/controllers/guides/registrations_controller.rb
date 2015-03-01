@@ -40,9 +40,9 @@ class Guides::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # You can put the params you want to permit in the empty array.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.for(:sign_up) << :attribute << :city
+  end
 
   # You can put the params you want to permit in the empty array.
   # def configure_account_update_params

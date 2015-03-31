@@ -1,10 +1,18 @@
 <h1>WELCOME</h1>
 
 <% if guide_signed_in? %>
-<p>Hi guide</p>
-<%= link_to "New programe", new_program_path%>
-<%= link_to "sign out",  destroy_guide_session_path, method: :delete%>
+	<p>Hi guide</p>
+	<%= link_to "New programe", new_program_path%>
+	<%= link_to "sign out",  destroy_guide_session_path, method: :delete%>
 <%else%>
-<p><%=link_to "Become a guide", new_guide_registration_path%></p>
-<%== link_to "Sign in guide", new_guide_session_path%>
+	<p><%=link_to "Become a guide", new_guide_registration_path%></p>
+	<%= link_to "Sign in guide", new_guide_session_path%>
 <%end%>
+
+<h1>liste of programs</h1>
+
+<ul>
+<%@programs.each do |p|%>
+	<li><%=p.name%></li>
+<%end%>
+</ul>

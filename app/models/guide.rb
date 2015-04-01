@@ -6,6 +6,6 @@ class Guide < ActiveRecord::Base
 
   has_many :languages
   has_many :programs
-  has_many :reviews
+  has_many :review_guides
 
 end

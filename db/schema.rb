@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401090754) do
+ActiveRecord::Schema.define(version: 20150401172824) do
 
   create_table "guides", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -51,10 +51,17 @@ ActiveRecord::Schema.define(version: 20150401090754) do
     t.integer  "length"
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "review_guides", force: :cascade do |t|
     t.integer  "rating"
     t.text     "comment"
     t.integer  "guide_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "rating"
+    t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "program_id"

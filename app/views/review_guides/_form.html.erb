@@ -1,0 +1,27 @@
+<%= form_for @review_guide, url: {action: "create_review_guide"}, html: {class: "nifty_form"} do |f|%>
+  <% if @review_guide.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review_guide.errors.count, "error") %> prohibited this review from being saved:</h2>
+      <ul>
+        <% @review_guide.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.number_field :rating %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

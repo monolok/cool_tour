@@ -30,6 +30,6 @@
 
 <ul>
 <%@guides.each do |g|%>
-	<li><%=g.email%></li>
+	<li><%=link_to g.email, "profile/#{g.id}"%></li>
 <%end%>
 </ul>

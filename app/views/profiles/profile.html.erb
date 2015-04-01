@@ -1,0 +1,11 @@
+<p><%= @guide.email%></p>
+
+<%= link_to "review guide", "/review_guide/guide/#{@guide.id}/new"%>
+
+<h3>Comments</h3>
+  <ul>
+    <% @guide.review_guides.each do |rg|%>
+      <li><%= rg.comment%></li>
+      <li><%= rg.rating%></li> </br>
+    <%end%>
+  </ul>

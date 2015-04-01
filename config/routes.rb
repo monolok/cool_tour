@@ -6,11 +6,15 @@ devise_for :visitors
 
 devise_for :guides, controllers: { registrations: "guides/registrations"}
 
-devise_scope :guides do
-  #resources :reviews
-  resources :programs do
-    resources :reviews
-  end
+get 'profile/:id', to: "profiles#profile", as: "profile"
+
+resource :review_guides, except: [:new, :create]
+get 'review_guide/guide/:id/new', to: "review_guides#new_review_guide"
+post 'review_guide/guide/:id', to: "review_guides#create_review_guide"
+
+
+resources :programs do
+  resources :reviews
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

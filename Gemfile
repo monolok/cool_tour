@@ -30,6 +30,7 @@ gem 'font-awesome-rails'
 gem 'stripe'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'jquery-easing-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

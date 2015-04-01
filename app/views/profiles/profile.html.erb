@@ -1,3 +1,4 @@
+<div class="pad-top">
 <p><%= @guide.email%></p>
 
 <%= link_to "review guide", "/review_guide/guide/#{@guide.id}/new"%>
@@ -8,4 +9,5 @@
       <li><%= rg.comment%></li>
       <li><%= rg.rating%></li> </br>
     <%end%>
-  </ul>
+  </ul>	
+</div>

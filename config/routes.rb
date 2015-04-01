@@ -2,10 +2,15 @@ Rails.application.routes.draw do
 
 root to: "welcomes#index"
 
+devise_for :visitors
+
 devise_for :guides, controllers: { registrations: "guides/registrations"}
 
 devise_scope :guides do
-  resources :programs
+  #resources :reviews
+  resources :programs do
+    resources :reviews
+  end
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

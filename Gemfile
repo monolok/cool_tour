@@ -31,6 +31,7 @@ gem 'stripe'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'jquery-easing-rails'
+gem "simple_calendar"
 # Use Unicorn as the app server
 # gem 'unicorn'
 

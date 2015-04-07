@@ -291,10 +291,16 @@ background-color: #42dca3;
 .pad-top{
 	padding-top: 12%;
 }
+.pad-top-show{
+	padding-top: 6%;
+}
 @media(max-width:650px) {
 	.pad-top {
 		padding-top: 20%;
 	}
+}
+.has-events {
+	background-color: yellow;
 }
 /*ul.banner-social-buttons {
 margin-top: 0;

@@ -9,11 +9,21 @@ class ProgramsController < ApplicationController
   end
 
   def show
+    @event_dates = @program.events
     respond_with(@program)
+  end
+
+  def book_now
+    @program = Program.find(params[:program_id])
+    @event_dates = @program.events
+    @program.events.find(params[:event_id]).update(booked: true)
+    #@program.update(city: "rennes")
+    render action: :show
   end
 
   def new
     @program = Program.new
+    @program.events.new
     respond_with(@program)
   end
 
@@ -23,6 +33,9 @@ class ProgramsController < ApplicationController
   def create
     @program = Program.new(program_params)
     @program.guide_id = current_guide.id
+    # @program.events.each do |event|
+    #   event.update(booked: false)
+    # end
     @program.save
     respond_with(@program)
   end
@@ -43,6 +56,6 @@ class ProgramsController < ApplicationController
     end
 
     def program_params
-      params.require(:program).permit(:city, :length, :price, :description, :name, :transportation)
+      params.require(:program).permit(:city, :length, :price, :description, :name, :transportation, events_attributes: [:starts_at, :ends_at, :booked])
     end
 end

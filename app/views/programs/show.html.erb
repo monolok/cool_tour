@@ -1,44 +1,90 @@
-<%= link_to "Home", root_path%>
+<%# console%>
 <p id="notice"><%= notice %></p>
+<div class="container-fluid pad-top-show">
+  <div class="row">
+      <%= link_to "Write a Review", new_program_review_path(@program) %>
+      <%= link_to 'Edit', edit_program_path(@program) %>
+      <%= link_to 'Back', programs_path %>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="row">
+        <p>
+          <strong>Name:</strong>
+          <%= @program.name %>
+        </p>
+      </div>   
+      <div class="row">
+        <p>
+          <strong>City:</strong>
+          <%= @program.city %>
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <strong>Length:</strong>
+          <%= @program.length %>
+        </p>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="row">
+        <p>
+          <strong>Price:</strong>
+          <%= @program.price %>
+        </p>
+      </div>
+      <div class="row">
+        <p>
+          <strong>Description:</strong>
+          <%= @program.description %>
+        </p>
+      </div>   
+      <div class="row">
+        <p>
+          <strong>Transportation:</strong>
+          <%= @program.transportation %>
+        </p>
+      </div> 
+      <div class="row">
+        <%#@event_dates.each do |date|%>
+            <%# date.starts_at%>
+            <%# date.ends_at%>          
+        <%#end%>
 
-<p>
-  <strong>City:</strong>
-  <%= @program.city %>
-</p>
 
-<p>
-  <strong>Length:</strong>
-  <%= @program.length %>
-</p>
+        <%= month_calendar events: @event_dates do |date, events| %>
+          <%= date %>
+          <% events.each do |event| %>
+            <div>
+              <%if event.booked == nil%>
+                <%= link_to "Book Now", program_book_path(@program.id, event.id), class: "btn btn-default"%>
+              <%else%>
+                Booked
+              <%end%>
+            </div>
+          <% end %>
+        <% end %>
 
-<p>
-  <strong>Price:</strong>
-  <%= @program.price %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @program.description %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @program.name %>
-</p>
 
-<p>
-  <strong>Transportation:</strong>
-  <%= @program.transportation %>
-</p>
 
-<%= link_to 'Edit', edit_program_path(@program) %> |
-<%= link_to 'Back', programs_path %>
- <%= link_to "Write a Review", new_program_review_path(@program) %> </br>
 
-<h3>Comments</h3>
-  <ul>
-    <% @program.reviews.each do |r|%>
-      <li><%= r.comment%></li>
-      <li><%= r.rating%></li> </br>
-    <%end%>
-  </ul>
+      </div>     
+    </div>
+  </div> 
+  <div class="book-now">
+    <%# link_to "Book Now", program_book_path(@program.id), class: "btn btn-default"%>
+  </div>
+  <div class="row">
+    <h3>Comments</h3>
+    <ul>
+      <% @program.reviews.each do |r|%>
+        <li><%= r.comment%></li>
+        <li><%= r.rating%></li> </br>
+      <%end%>
+    </ul>
+  </div> 
+</div>
+

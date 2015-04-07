@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401172824) do
+ActiveRecord::Schema.define(version: 20150407144140) do
+
+  create_table "events", force: :cascade do |t|
+    t.boolean  "booked"
+    t.integer  "program_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+  end
 
   create_table "guides", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

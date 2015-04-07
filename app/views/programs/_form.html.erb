@@ -1,3 +1,4 @@
+<%= console%>
 <%= form_for(@program) do |f| %>
   <% if @program.errors.any? %>
     <div id="error_explanation">
@@ -34,6 +35,14 @@
   <div class="field">
     <%= f.label :transportation %><br>
     <%= f.text_field :transportation %>
+  </div>
+  <div class="field">
+    <%= f.fields_for :events do |event|%>
+      <p>start</p>
+      <%= event.date_select(:starts_at, order: [:day, :month, :year])%>
+      <p>end</p>
+      <%= event.date_select(:ends_at, order: [:day, :month, :year])%>
+    <%end%>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -14,6 +14,8 @@ post 'review_guide/guide/:id', to: "review_guides#create_review_guide"
 
 
 resources :programs do
+  get 'book_now/:event_id', to: "programs#book_now"
+  post 'book_now/:event_id', to: "programs#book_now", as: "book"
   resources :reviews
 end
 
